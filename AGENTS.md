@@ -40,22 +40,23 @@ React 17+ support with TypeScript generics, comprehensive testing, and npm publi
 
 ```
 twist-toast/
-├── example/           # example use of this library
+├── example/           # example use of this library (Not available now, will be added in future after core library is ready)
 ├── packages/           # Workspace packages
-│   ├── twist-toast/   # Core library (main deliverable)
-│   ├── eslint-config/ # Shared ESLint configurations
-│   └── typescript-config/ # Shared TypeScript configurations
+│   ├── core/   # Core library (main deliverable)
+│   ├── react/ # React-specific utilities or providers (if needed in future)
+│   ├── [others] # in future I will add other framework specific packages like Vue, Angular, Svelte, etc. support, (If needed). not now. 
 │
 ├── tooling/           # Workspace tooling packages
 │   ├── eslint-config/ # Shared ESLint configurations
 │   └── typescript-config/ # Shared TypeScript configurations
 ├── AGENTS.md/             # shared AI assistant guidance documents/Rules
+├── tutorials/             # Guides and tutorials for building and  using the library
 ├── .turbo/            # Turborepo cache and daemon logs
 ```
 
 ## Package Organization
 
-### twist-toast (Core Library- initially )
+### twist-toast (Core Library- initially, will be changed based on project needs  )
 
 ```
 packages/core/
