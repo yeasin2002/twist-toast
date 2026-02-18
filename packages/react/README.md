@@ -1,29 +1,48 @@
-# react-components-starter
+# @twist-toast/react
 
-A starter for creating a React component library.
+React adapter package for the twist-toast project.
 
-## Development
+This package should contain React-specific integration such as providers, hooks, and rendering utilities that sit on top of `@twist-toast/core`.
 
-- Install dependencies:
+## Scope
 
-```bash
-npm install
+- React-only code
+- UI integration layer for the core package
+- Should not duplicate framework-agnostic business logic from `@twist-toast/core`
+
+## Current Status
+
+The package is currently scaffolded and exports a sample component.
+
+### Current Export
+
+```tsx
+import { MyButton } from "@twist-toast/react";
+
+export function App() {
+  return <MyButton type="primary" />;
+}
 ```
 
-- Run the playground:
+## Peer Dependencies
+
+- `react`
+- `react-dom`
+
+## Build
+
+From repository root:
 
 ```bash
-npm run play
+pnpm --filter @twist-toast/react build
 ```
 
-- Run the unit tests:
+Watch mode:
 
 ```bash
-npm run test
+pnpm --filter @twist-toast/react dev
 ```
 
-- Build the library:
+## Notes
 
-```bash
-npm run build
-```
+As the project evolves, this package should become the official React integration layer for twist-toast, while relying on `@twist-toast/core` for toast behavior/state logic.
