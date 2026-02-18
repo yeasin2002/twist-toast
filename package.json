@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "twist-toast",
   "private": true,
   "scripts": {
     "build": "turbo run build",
