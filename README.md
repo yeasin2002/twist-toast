@@ -1,240 +1,125 @@
 # twist-toast
 
-A React toast notification library that gives you full design control while handling all the behavior.
+Design-system-first toast notifications.
 
-## Why twist-toast?
+`twist-toast` is an open-source library focused on one principle: you own every pixel of the toast UI, while the library manages behavior (state, queueing, timing, lifecycle, and accessibility).
 
-Most toast libraries force you to override their styles to match your design system. twist-toast flips this: you own every pixel of the UI, and the library manages state, queuing, timing, and accessibility.
+## Why twist-toast
 
-## Features
+Most toast libraries bundle UI opinions that are hard to align with product design systems.  
+`twist-toast` separates concerns:
 
-- 🎨 **Full Design Control** - Bring your own components, use your design tokens
-- 🔒 **TypeScript-First** - Complete type inference from your component definitions
-- 🪶 **Lightweight** - Zero runtime dependencies beyond React, <5KB gzipped
-- ⚡ **Simple Integration** - Install → configure → use in under 5 minutes
-- ♿ **Accessible** - WCAG 2.1 AA compliant with proper ARIA roles
-- 🎯 **Smart Queuing** - Automatic queue management with deduplication
-- 🔧 **Flexible** - Multiple isolated toast instances per app
+- Your components define presentation
+- The library handles behavior and orchestration
+- TypeScript infers payload types from your component map
 
-## Installation
+## Product Direction
+
+The primary integration model is:
+
+1. Define your toast components
+2. Call `createToast(components, options?)`
+3. Use a zero-config `<ToastProvider>` in your app root
+
+This keeps configuration close to your component definitions and gives strongly typed `toast.success(...)`, `toast.error(...)`, and custom variant methods.
+
+## Target Capabilities (Phase 1)
+
+- `createToast()` factory with type inference
+- Queue management with configurable max visible toasts
+- Deduplication by toast `id` (ignore/refresh behavior)
+- Programmatic dismissal: `dismiss(id)` and `dismissAll()`
+- Per-toast options: `duration`, `position`, `dismissOnClick`, `id`, `role`
+- Accessibility defaults (`alert`/`status`, non-focus-stealing behavior)
+- Multiple isolated toast instances in a single app
+
+## Monorepo Packages
+
+### `@twist-toast/core`
+
+Framework-agnostic core logic:
+
+- state machine and queue orchestration
+- timer lifecycle and dismissal flow
+- dedupe behavior and internal events
+- shared types used by adapters
+
+### `@twist-toast/react`
+
+React adapter layer:
+
+- provider/context wiring
+- portal-based rendering
+- React-facing APIs built on top of `@twist-toast/core`
+
+## Repository Layout
+
+```text
+twist-toast/
+├── packages/
+│   ├── core/
+│   └── react/
+├── examples/
+├── tooling/
+└── PROJECT-BRD.md
+```
+
+## Current Status
+
+This repository is currently under active development.  
+`@twist-toast/core` and `@twist-toast/react` are scaffolded and being implemented toward the BRD goals.
+
+## Local Development
+
+### Requirements
+
+- Node.js 18+
+- pnpm 10+
+
+### Install
 
 ```bash
-pnpm add twist-toast
-# or
-npm install twist-toast
-# or
-yarn add twist-toast
-```
-
-## Quick Start
-
-### 1. Create your toast components
-
-```tsx
-// components/toasts.tsx
-import type { ToastComponentProps } from 'twist-toast';
-
-export const SuccessToast = ({ title, description, dismiss }: ToastComponentProps<{
-  title: string;
-  description?: string;
-}>) => (
-  <div className="success-toast" onClick={dismiss}>
-    <strong>{title}</strong>
-    {description && <p>{description}</p>}
-  </div>
-);
-
-export const ErrorToast = ({ message, dismiss }: ToastComponentProps<{
-  message: string;
-}>) => (
-  <div className="error-toast" onClick={dismiss}>
-    <span>{message}</span>
-  </div>
-);
-```
-
-### 2. Configure your toast instance
-
-```tsx
-// lib/toast.ts
-import { createToast } from 'twist-toast';
-import { SuccessToast, ErrorToast } from '@/components/toasts';
-
-export const toast = createToast(
-  {
-    success: SuccessToast,
-    error: ErrorToast,
-  },
-  {
-    defaultPosition: 'top-right',
-    defaultDuration: 4000,
-    maxToasts: 5,
-  }
-);
-```
-
-### 3. Add the provider to your app
-
-```tsx
-// app/layout.tsx
-import { ToastProvider } from 'twist-toast';
-
-export default function RootLayout({ children }) {
-  return (
-    <html>
-      <body>
-        <ToastProvider>
-          {children}
-        </ToastProvider>
-      </body>
-    </html>
-  );
-}
-```
-
-### 4. Use it anywhere
-
-```tsx
-import { toast } from '@/lib/toast';
-
-function MyComponent() {
-  const handleSave = async () => {
-    try {
-      await saveData();
-      toast.success({ 
-        title: 'Saved!', 
-        description: 'Your changes were saved.' 
-      });
-    } catch (error) {
-      toast.error({ message: 'Failed to save changes' });
-    }
-  };
-
-  return <button onClick={handleSave}>Save</button>;
-}
-```
-
-## API Reference
-
-### `createToast(components, options?)`
-
-Creates a typed toast instance bound to your component map.
-
-**Parameters:**
-- `components` - Object mapping variant names to React components
-- `options` (optional) - Global configuration
-  - `defaultPosition` - Default toast position (default: `'top-right'`)
-  - `defaultDuration` - Default duration in ms (default: `4000`)
-  - `maxToasts` - Maximum concurrent toasts (default: `5`)
-
-**Returns:** Typed toast instance with methods for each variant
-
-### Toast Instance Methods
-
-```tsx
-toast.success(payload, options?)
-toast.error(payload, options?)
-toast[variant](payload, options?)
-toast.dismiss(id)
-toast.dismissAll()
-```
-
-**Per-call options:**
-- `duration` - Override default duration
-- `position` - Override default position
-- `dismissOnClick` - Enable/disable click to dismiss
-- `id` - Custom toast ID (auto-generated if omitted)
-- `role` - ARIA role (`'alert'` | `'status'`)
-
-### `<ToastProvider>`
-
-Zero-config context provider. Place once at your app root.
-
-```tsx
-<ToastProvider>
-  {children}
-</ToastProvider>
-```
-
-## Advanced Usage
-
-### Multiple Toast Instances
-
-Create isolated toast instances for different contexts:
-
-```tsx
-// Global toasts
-export const toast = createToast({ success: GlobalSuccess, error: GlobalError });
-
-// Modal-specific toasts
-export const modalToast = createToast(
-  { info: ModalInfo },
-  { defaultPosition: 'bottom-center' }
-);
-```
-
-### Programmatic Dismissal
-
-```tsx
-const toastId = toast.success({ title: 'Loading...' });
-
-// Later...
-toast.dismiss(toastId);
-toast.success({ title: 'Complete!' });
-```
-
-### Custom Variants
-
-```tsx
-const toast = createToast({
-  success: SuccessToast,
-  error: ErrorToast,
-  loading: LoadingToast,
-  custom: CustomToast,
-});
-
-toast.loading({ message: 'Processing...' });
-toast.custom({ data: 'anything' });
-```
-
-## Development
-
-This is a monorepo managed with Turborepo and pnpm.
-
-```bash
-# Install dependencies
 pnpm install
+```
 
-# Build all packages
+### Build
+
+```bash
 pnpm build
+```
 
-# Development mode
-pnpm dev
+### Package-specific build
 
-# Run linting
+```bash
+pnpm --filter @twist-toast/core build
+pnpm --filter @twist-toast/react build
+```
+
+### Quality checks
+
+```bash
 pnpm lint
-
-# Format code
 pnpm format
-
-# Type check
 pnpm check-types
 ```
 
-## Requirements
+## Using Workspace Packages in Examples
 
-- React 17 or higher
-- Node.js 18 or higher
-- TypeScript 5.0+ (for TypeScript users)
+```bash
+pnpm --filter ./examples/vite-react add @twist-toast/core@workspace:*
+pnpm --filter ./examples/vite-react add @twist-toast/react@workspace:*
+```
+
+## Roadmap
+
+- **Phase 1 (v1.0 target)**: core manager, typed `createToast()`, React provider, test suite, npm-ready docs
+- **Phase 2**: CLI scaffolding support
+- **Phase 3+**: additional framework adapters (Vue/Svelte) and plugin-style extension points
+
+## Reference
+
+- Business requirements and architecture intent: `PROJECT-BRD.md`
 
 ## License
 
 MIT
-
-## Contributing
-
-Contributions are welcome! Please read our contributing guidelines before submitting PRs.
-
----
-
-For detailed requirements and architecture, see [PROJECT-BRD.md](./PROJECT-BRD.md).
