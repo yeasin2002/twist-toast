@@ -7,5 +7,6 @@ packages:
 onlyBuiltDependencies:
   - '@swc/core'
   - esbuild
+  - lefthook
   - sharp
   - unrs-resolver

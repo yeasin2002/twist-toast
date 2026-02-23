@@ -1,0 +1,17 @@
+glob_matcher: doublestar
+
+pre-commit:
+  commands:
+    lint:
+      glob:
+        - "packages/**/*"
+        - "example/**/*"
+        - "examples/**/*"
+      run: pnpm lint
+    format:
+      glob:
+        - "packages/**/*.{ts,tsx,md}"
+        - "example/**/*.{ts,tsx,md}"
+        - "examples/**/*.{ts,tsx,md}"
+      run: pnpm format
+      stage_fixed: true
