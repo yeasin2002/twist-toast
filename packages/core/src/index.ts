@@ -1,3 +1,1 @@
-export function fn() {
-  return 'Hello, tsdown!'
-}
+import { createToastId } from "./utils";
