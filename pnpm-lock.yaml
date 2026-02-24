@@ -72,6 +72,9 @@ importers:
 
   packages/core:
     devDependencies:
+      '@twist-toast/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
       tsdown:
         specifier: ^0.18.1
         version: 0.18.4(typescript@5.9.3)

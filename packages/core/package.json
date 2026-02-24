@@ -1,11 +1,16 @@
 {
   "name": "@twist-toast/core",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
-  "description": "A simple example library built by tsdown",
+  "sideEffects": false,
+  "description": "Framework-agnostic toast state manager for twist-toast.",
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
     "./package.json": "./package.json"
   },
   "main": "./dist/index.mjs",
@@ -16,9 +21,12 @@
   ],
   "scripts": {
     "build": "tsdown",
-    "dev": "tsdown --watch"
+    "dev": "tsdown --watch",
+    "lint": "tsc --noEmit",
+    "check-types": "tsc --noEmit"
   },
   "devDependencies": {
+    "@twist-toast/typescript-config": "workspace:*",
     "tsdown": "^0.18.1",
     "typescript": "^5.9.3"
   }

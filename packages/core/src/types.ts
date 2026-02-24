@@ -18,6 +18,15 @@ export type ToastCallOptions = {
   role?: ToastRole;
 };
 
+export interface CreateToastOptions {
+  defaultDuration?: number;
+  defaultPosition?: ToastPosition;
+  maxToasts?: number;
+  dedupe?: ToastDeduplication;
+  scope?: string;
+}
+
+
 export interface ToastRecord<T = unknown> {
   id: string;
   variant: string;
