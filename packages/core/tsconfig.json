@@ -1,0 +1,12 @@
+{
+  "extends": "@twist-toast/typescript-config/base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "types": [],
+    "verbatimModuleSyntax": true
+  },
+  "include": ["src"]
+}

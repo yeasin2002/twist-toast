@@ -1,4 +1,4 @@
-import { ToastPosition, ToastRole } from "./types";
+import type { ToastPosition, ToastRole } from "./types";
 
 export const TOAST_POSITIONS: ToastPosition[] = [
   "top-right",
