@@ -26,7 +26,6 @@ export interface CreateToastOptions {
   scope?: string;
 }
 
-
 export interface ToastRecord<T = unknown> {
   id: string;
   variant: string;
@@ -43,7 +42,6 @@ export interface ToastManagerSnapshot<TPayload = unknown> {
   visible: ToastRecord<TPayload>[];
   queued: ToastRecord<TPayload>[];
 }
-
 
 export interface ToastManager {
   trigger(

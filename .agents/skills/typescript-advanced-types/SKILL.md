@@ -2,9 +2,12 @@
 name: typescript-advanced-types
 description: Master TypeScript's advanced type system including generics, conditional types, mapped types, template literals, and utility types for building type-safe applications. Use when implementing complex type logic, creating reusable type utilities, or ensuring compile-time type safety in TypeScript projects.
 ---
+
 ---
+
 name: typescript
 description: TypeScript code style and optimization guidelines. Use when writing TypeScript code (.ts, .tsx, .mts files), reviewing code quality, or implementing type-safe patterns. Triggers on TypeScript development, type safety questions, or code style discussions.
+
 ---
 
 # TypeScript Code Style Guide
@@ -54,8 +57,6 @@ description: TypeScript code style and optimization guidelines. Use when writing
 - Never log user private information (API keys, etc.)
 - Don't use `import { log } from 'debug'` directly (logs to console)
 - Use `console.error` in catch blocks instead of debug package
-
-
 
 # TypeScript Advanced Types
 
