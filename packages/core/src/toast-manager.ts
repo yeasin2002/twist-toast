@@ -8,7 +8,6 @@ import type {
   ToastManagerSnapshot,
   ToastPosition,
   ToastRecord,
-  ToastRole,
 } from "./types";
 
 interface InternalToastRecord extends ToastRecord {
