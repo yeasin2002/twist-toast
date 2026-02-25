@@ -1,4 +1,3 @@
-import { MyButton } from "@twist-toast/react";
 import "./App.css";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
@@ -16,8 +15,6 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <MyButton type="primary" />
-
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
