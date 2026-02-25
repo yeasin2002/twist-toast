@@ -1,5 +1,7 @@
 export { createToastManager } from "./toast-manager";
 
+export { DEFAULT_CONFIG, TOAST_POSITIONS } from "./constants";
+
 export type {
   CreateToastOptions,
   ToastCallOptions,
@@ -10,3 +12,4 @@ export type {
   ToastRecord,
   ToastRole,
 } from "./types";
+
