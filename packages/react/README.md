@@ -1,48 +1,97 @@
 # @twist-toast/react
 
-React adapter package for the twist-toast project.
+React adapter for `@twist-toast/core`.
 
-This package should contain React-specific integration such as providers, hooks, and rendering utilities that sit on top of `@twist-toast/core`.
+This package provides:
 
-## Scope
+- `createToast()` for typed variant APIs
+- `ToastProvider` for rendering scoped toasts via portal
+- React-facing types (`ToastComponentProps`, `ToastInstance`, etc.)
 
-- React-only code
-- UI integration layer for the core package
-- Should not duplicate framework-agnostic business logic from `@twist-toast/core`
-
-## Current Status
-
-The package is currently scaffolded and exports a sample component.
-
-### Current Export
+## Usage
 
 ```tsx
-import { MyButton } from "@twist-toast/react";
+import {
+  createToast,
+  ToastProvider,
+  type ToastComponentProps,
+} from "@twist-toast/react";
 
-export function App() {
-  return <MyButton type="primary" />;
+type SuccessPayload = { title: string; description?: string };
+
+function SuccessToast({
+  title,
+  description,
+  dismiss,
+}: ToastComponentProps<SuccessPayload>) {
+  return (
+    <article>
+      <strong>{title}</strong>
+      {description ? <p>{description}</p> : null}
+      <button onClick={dismiss}>Dismiss</button>
+    </article>
+  );
+}
+
+export const toast = createToast(
+  { success: SuccessToast },
+  { scope: "global", maxToasts: 5, defaultPosition: "top-right" },
+);
+
+export function App({ children }: { children: React.ReactNode }) {
+  return <ToastProvider scope="global">{children}</ToastProvider>;
 }
 ```
 
-## Peer Dependencies
+Triggering:
 
-- `react`
-- `react-dom`
+```ts
+toast.success({ title: "Saved" });
+toast.success(
+  { title: "Syncing" },
+  { id: "job-1", duration: 7000, dismissOnClick: true },
+);
+toast.dismiss("job-1");
+toast.dismissAll();
+```
+
+## Scope Rules
+
+- Toast instances are created with one `scope` (`default` if omitted).
+- A provider only renders toasts from the same scope.
+- One provider per scope is the supported behavior.
+
+## Motion Overrides
+
+`ToastProvider` includes a default smooth enter transition at wrapper level.
+You can override motion with CSS variables or selectors:
+
+```css
+/* Target all wrappers */
+[data-twist-toast-item] {
+  --twist-toast-enter-duration: 260ms;
+  --twist-toast-enter-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --twist-toast-enter-scale: 0.96;
+}
+
+/* Optional global directional override */
+:root {
+  --twist-toast-enter-distance: 14px;
+}
+```
+
+Available variables:
+
+- `--twist-toast-enter-duration`
+- `--twist-toast-enter-easing`
+- `--twist-toast-enter-scale`
+- `--twist-toast-enter-distance`
+- `--twist-toast-transition-duration`
+- `--twist-toast-transition-easing`
 
 ## Build
 
-From repository root:
-
 ```bash
 pnpm --filter @twist-toast/react build
+pnpm --filter @twist-toast/react check-types
 ```
-
-Watch mode:
-
-```bash
-pnpm --filter @twist-toast/react dev
-```
-
-## Notes
-
-As the project evolves, this package should become the official React integration layer for twist-toast, while relying on `@twist-toast/core` for toast behavior/state logic.
