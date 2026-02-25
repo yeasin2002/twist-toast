@@ -1,16 +1,14 @@
 {
-  "extends": "@tsconfig/strictest/tsconfig.json",
+  "extends": "@twist-toast/typescript-config/react-library.json",
   "compilerOptions": {
-    "target": "esnext",
-    "jsx": "react-jsx",
-    "lib": ["es2023", "DOM"],
-    "moduleDetection": "force",
-    "module": "preserve",
+    "module": "ESNext",
     "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "types": [],
+    "paths": {
+      "@twist-toast/core": ["../core/src/index.ts"]
+    },
     "declaration": true,
     "emitDeclarationOnly": true,
+    "types": [],
     "verbatimModuleSyntax": true
   },
   "include": ["src"]

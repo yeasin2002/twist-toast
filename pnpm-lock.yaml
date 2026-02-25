@@ -94,6 +94,9 @@ importers:
       '@tsconfig/strictest':
         specifier: ^2.0.8
         version: 2.0.8
+      '@twist-toast/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
       '@types/node':
         specifier: ^25.0.3
         version: 25.2.3
