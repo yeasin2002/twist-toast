@@ -1,3 +1,4 @@
+import { ReactLenis } from "lenis/react";
 import { Syne } from "next/font/google";
 
 import type { Metadata } from "next";
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${dmSans.variable} ${syne.variable} antialiased`}>
+        <ReactLenis root />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -37,6 +39,7 @@ export default function RootLayout({
             Skip to content
           </a>
           <Navbar />
+
           <main id="content">{children}</main>
           <Footer />
         </ThemeProvider>
