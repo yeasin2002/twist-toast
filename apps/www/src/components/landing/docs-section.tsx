@@ -1,4 +1,4 @@
-import { CodeBlock, SectionHeader } from "../blocks/primitives";
+import { CodeBlock, SectionHeader } from "../blocks";
 import { createToastCode, installCommand, providerCode } from "./data";
 
 const docsSteps = [
