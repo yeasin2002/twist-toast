@@ -115,7 +115,7 @@ export const Testimonials = ({
                   >
                     <Card className="bg-muted h-full overflow-hidden border-none">
                       <CardContent className="flex h-full flex-col p-0">
-                        <div className="relative h-[288px] lg:h-[328px]">
+                        <div className="relative h-72 lg:h-82">
                           <Image
                             src={testimonial.image}
                             alt={testimonial.author}

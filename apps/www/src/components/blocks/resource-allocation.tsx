@@ -198,7 +198,7 @@ const Item = ({ item, isLast, className }: ItemProps) => {
                     alt={image.alt}
                     width={image.width}
                     height={image.height}
-                    className="object-contain object-left-top"
+                    className="object-contain object-top-left"
                   />
                   <div className="from-muted/80 absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l to-transparent" />
                 </div>
@@ -216,7 +216,7 @@ const Item = ({ item, isLast, className }: ItemProps) => {
                     alt={image.alt}
                     width={image.width}
                     height={image.height}
-                    className="object-contain object-left-top"
+                    className="object-contain object-top-left"
                   />
                   <div className="from-muted absolute inset-y-0 bottom-0 left-0 z-10 w-14 bg-linear-to-r to-transparent" />
                 </div>
@@ -233,7 +233,7 @@ const Item = ({ item, isLast, className }: ItemProps) => {
               alt={image.alt}
               width={image.width}
               height={image.height}
-              className="object-contain object-left-top"
+              className="object-contain object-top-left"
             />
           ))}
         </div>
