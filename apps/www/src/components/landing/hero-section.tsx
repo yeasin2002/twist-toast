@@ -1,9 +1,7 @@
 import Link from "next/link";
 
-import { Sparkles } from "lucide-react";
 
-import { behaviorChips, installCommand, valueProps } from "./data";
-import { CodeBlock } from "./primitives";
+import { valueProps } from "./data";
 
 import { Button } from "@/components/ui/button";
 
@@ -11,10 +9,11 @@ export function HeroSection() {
   return (
     <section className="relative container pt-32 pb-20 md:pt-40 md:pb-28">
       <div className="tt-grid-glow" aria-hidden="true" />
-      <div className="relative grid gap-14 xl:grid-cols-[1.15fr_0.85fr]">
+      {/* grid  xl:grid-cols-[1.15fr_0.85fr] */}
+      <div className="relative gap-14">
         <div>
           <p className="tt-kicker">Design-system-first notifications</p>
-          <h1 className="mt-4 max-w-4xl text-5xl leading-[0.95] tracking-tight text-balance md:text-7xl">
+          <h1 className="mt-4 max-w-5xl text-5xl leading-[0.95] tracking-tight text-balance md:text-7xl">
             twist-toast gives you total UI freedom with reliable toast behavior.
           </h1>
           <p className="text-muted-foreground mt-6 max-w-2xl text-base leading-relaxed md:text-lg">
@@ -39,7 +38,7 @@ export function HeroSection() {
               MIT Licensed
             </span>
           </div>
-          <div className="mt-9 grid gap-4 sm:grid-cols-2">
+          <div className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {valueProps.map((item) => (
               <article key={item.title} className="tt-panel">
                 <item.icon className="text-primary size-5" />
@@ -54,7 +53,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <aside className="tt-panel h-fit md:sticky md:top-28">
+        {/* <aside className="tt-panel h-fit md:sticky md:top-28">
           <p className="tt-kicker">Quick install</p>
           <CodeBlock code={installCommand} />
 
@@ -74,7 +73,7 @@ export function HeroSection() {
             Works with multiple isolated scopes, custom variants, and
             programmatic control without forcing a design opinion.
           </p>
-        </aside>
+        </aside> */}
       </div>
     </section>
   );

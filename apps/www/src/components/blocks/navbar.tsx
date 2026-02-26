@@ -2,9 +2,10 @@ import Link from "next/link";
 
 import { Github, Menu } from "lucide-react";
 
+import { NpmIcon } from "../icons";
+
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
-
 const navItems = [
   { label: "Features", href: "/#playground" },
   { label: "Docs", href: "/#docs" },
@@ -50,6 +51,16 @@ export function Navbar() {
                 target="_blank"
               >
                 <Github className="size-4" />
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="icon" className="size-9">
+              <a
+                aria-label="twist-toast GitHub repository"
+                href="https://github.com/yeasin2002/twist-toast"
+                rel="noreferrer"
+                target="_blank"
+              >
+                <NpmIcon className="size-4" />
               </a>
             </Button>
 
