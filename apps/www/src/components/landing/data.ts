@@ -108,56 +108,35 @@ export const builderMetrics = [
   { label: "dedupe", value: "refresh" },
 ];
 
-export const installCommand = "pnpm add @twist-toast/react @twist-toast/core";
+export const installCommand = "npm install @twist-toast/react";
 
-export const createToastCode = `import { createToast } from "@twist-toast/react";
+export const createToastCode = `
+// lib/toast.ts
+import { createToast } from "@twist-toast/react";
 import type { ToastComponentProps } from "@twist-toast/react";
-
-type MessageToast = { title: string; description?: string };
-
-function SuccessToast({
-  title,
-  description,
-  dismiss,
-}: ToastComponentProps<MessageToast>) {
-  return (
-    <article className="rounded-2xl border bg-white p-4 shadow-sm">
-      <p className="font-semibold text-emerald-700">{title}</p>
-      {description ? <p className="mt-1 text-sm">{description}</p> : null}
-      <button onClick={dismiss}>Close</button>
-    </article>
-  );
-}
+import {SuccessToast, ErrorToast, WarningToast} from "./components/toasts";
 
 export const toast = createToast(
   {
     success: SuccessToast,
-    error: SuccessToast,
-    warning: SuccessToast,
-  },
-  {
-    defaultDuration: 4200,
-    defaultPosition: "top-right",
-    maxToasts: 5,
-    dedupe: "refresh",
-  },
+    error: ErrorToast,
+    warning: WarningToast,
+  }
 );`;
 
 export const providerCode = `import { ToastProvider } from "@twist-toast/react";
-import { toast } from "./toast";
+import { toast } from "@/lib/toast";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({children,}: {children: React.ReactNode}) {
   return <ToastProvider>{children}</ToastProvider>;
-}
+}`;
 
-toast.success(
-  { title: "Draft saved", description: "All changes synced." },
-  { id: "draft-save", duration: 3000 },
-);`;
+export const triggerToast = ` 
+toast.success({ title: "Draft saved", description: "All changes synced." });
+toast.error({ title: "Failed to save draft", description: "Please try again." });
+toast.warning({ title: "Warning", description: "This action may be irreversible." });
+
+`;
 
 export const createOptions: ApiOptionRow[] = [
   {

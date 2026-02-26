@@ -1,10 +1,16 @@
 import { CodeBlock, SectionHeader } from "../blocks";
-import { createToastCode, installCommand, providerCode } from "./data";
+import {
+  createToastCode,
+  installCommand,
+  providerCode,
+  triggerToast,
+} from "./data";
 
 const docsSteps = [
   { label: "1. Install", code: installCommand },
-  { label: "2. Create typed toasts", code: createToastCode },
-  { label: "3. Mount provider and trigger", code: providerCode },
+  { label: "2. Mount provider", code: providerCode },
+  { label: "3. Create typed toasts", code: createToastCode },
+  { label: "4. trigger toast", code: triggerToast },
 ];
 
 export function DocsSection() {
