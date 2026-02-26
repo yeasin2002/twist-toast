@@ -1,11 +1,18 @@
 import Link from "next/link";
 
-
 import { valueProps } from "./data";
 
 import { Button } from "@/components/ui/button";
+import {
+  formatStarCount,
+  getGitHubStarCount,
+} from "@/helpers/get-github-star-count";
+import { Star } from "lucide-react";
 
-export function HeroSection() {
+export async function HeroSection() {
+  const stars = await getGitHubStarCount();
+  const starsLabel = stars === null ? "0" : formatStarCount(stars);
+
   return (
     <section className="relative container pt-32 pb-20 md:pt-40 md:pb-28">
       <div className="tt-grid-glow" aria-hidden="true" />
@@ -23,16 +30,19 @@ export function HeroSection() {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button asChild size="lg">
-              <Link href="#docs">Get Started</Link>
+              <Link href="/components">View Components</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a
+              <Link
                 href="https://github.com/yeasin2002/twist-toast"
-                rel="noreferrer"
                 target="_blank"
               >
-                View GitHub
-              </a>
+                <span className="inline-flex items-center justify-center gap-0.5">
+                  <span> {starsLabel} </span>
+                  <Star />
+                </span>
+                <span> GitHub</span>
+              </Link>
             </Button>
           </div>
           <div className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
