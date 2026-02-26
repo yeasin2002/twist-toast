@@ -1,5 +1,4 @@
-import { Inter } from "next/font/google";
-
+import { Syne } from "next/font/google";
 
 import type { Metadata } from "next";
 
@@ -10,9 +9,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { dmSans } from "@/lib/fonts";
 import "@/styles/globals.css";
 
-const inter = Inter({
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-syne",
+  display: "swap",
 });
 
 export default function RootLayout({
@@ -22,14 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          async
-          crossOrigin="anonymous"
-          src="https://tweakcn.com/live-preview.min.js"
-        />
-      </head>
-      <body className={`${dmSans.variable} ${inter.variable} antialiased`}>
+      <body className={`${dmSans.variable} ${syne.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -37,8 +30,14 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <StyleGlideProvider />
+          <a
+            href="#content"
+            className="focus:bg-background focus:text-foreground focus:ring-primary sr-only fixed top-3 left-3 z-[70] rounded-md px-3 py-2 text-sm font-medium focus:not-sr-only focus:ring-2 focus:outline-hidden"
+          >
+            Skip to content
+          </a>
           <Navbar />
-          <main className="">{children}</main>
+          <main id="content">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
@@ -48,29 +47,22 @@ export default function RootLayout({
 
 export const metadata: Metadata = {
   title: {
-    default: "Mainline - Modern Next.js Template",
-    template: "%s | Mainline",
+    default: "twist-toast · Design-system-first React toasts",
+    template: "%s · twist-toast",
   },
   description:
-    "A modern Next.js template built with shadcn/ui, Tailwind & MDX. Open source - MIT License.",
+    "Create React toasts that match your design system. twist-toast handles queueing, timing, accessibility, and typed variant APIs.",
   keywords: [
-    "Next.js",
-    "nextjs template",
-    "nextjs theme",
-    "nextjs starter",
-    "shadcn template",
-    "shadcn theme",
-    "shadcn starter",
-    "tailwind template",
-    "tailwind theme",
-    "tailwind starter",
-    "mdx template",
-    "mdx theme",
-    "mdx starter",
+    "twist-toast",
+    "React toast notifications",
+    "TypeScript toast library",
+    "design system toasts",
+    "custom toast components",
+    "toast provider",
   ],
-  authors: [{ name: "shadcnblocks.com" }],
-  creator: "shadcnblocks.com",
-  publisher: "shadcnblocks.com",
+  authors: [{ name: "twist-toast contributors" }],
+  creator: "twist-toast",
+  publisher: "twist-toast",
   robots: {
     index: true,
     follow: true,
@@ -80,32 +72,30 @@ export const metadata: Metadata = {
       { url: "/favicon/favicon.ico", sizes: "48x48" },
       { url: "/favicon/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-      { url: "/favicon/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon/favicon.ico" },
     ],
     apple: [{ url: "/favicon/apple-touch-icon.png", sizes: "180x180" }],
     shortcut: [{ url: "/favicon/favicon.ico" }],
   },
   openGraph: {
-    title: "Mainline - Modern Next.js Template",
+    title: "twist-toast · Own every toast pixel",
     description:
-      "A modern Next.js template built with shadcn/ui, Tailwind & MDX. Open source - MIT License.",
-    siteName: "Mainline",
+      "Build React toast notifications that fit your product UI exactly while twist-toast handles runtime behavior.",
+    siteName: "twist-toast",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Mainline - Modern Next.js Template",
+        alt: "twist-toast landing page preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mainline - Modern Next.js Template",
+    title: "twist-toast · Design-system-first React toasts",
     description:
-      "A modern Next.js template built with shadcn/ui, Tailwind & MDX. Open source - MIT License.",
+      "Type-safe toast behavior with complete control over UI components.",
     images: ["/og-image.jpg"],
-    creator: "@ausrobdev",
+    creator: "@twist_toast",
   },
 };
