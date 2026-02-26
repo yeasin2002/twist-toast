@@ -5,6 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "tunnel": "pnpm dlx cloudflared tunnel --url http://localhost:3000",
+    "dev:tunnel": "pnpm dlx concurrently -k -n dev,tunnel -c cyan,magenta \"next dev\" \"pnpm run tunnel\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
