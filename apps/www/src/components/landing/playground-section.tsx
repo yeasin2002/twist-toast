@@ -1,10 +1,10 @@
+import { SectionHeader } from "../blocks/primitives";
 import {
   builderMetrics,
   builderToasts,
   playgroundNotes,
   toastVariants,
 } from "./data";
-import { SectionHeader } from "./primitives/primitives";
 
 export function PlaygroundSection() {
   return (

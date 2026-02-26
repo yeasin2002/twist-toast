@@ -1,3 +1,4 @@
+import { SectionHeader, TableCard } from "../blocks/primitives";
 import {
   callOptions,
   createOptions,
@@ -5,7 +6,6 @@ import {
   type ApiOptionRow,
   type MethodRow,
 } from "./data";
-import { SectionHeader, TableCard } from "./primitives/primitives";
 
 interface OptionsTableProps {
   caption: string;
