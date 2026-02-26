@@ -25,7 +25,9 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
       theme={themes.nightOwl}
     >
       {({ className, tokens, getLineProps, getTokenProps }) => (
-        <pre className={`tt-code-block ${className}`}>
+        <pre
+          className={`tt-code-block bg-foreground dark:bg-background ${className}`}
+        >
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line })}>
               {line.map((token, key) => (
