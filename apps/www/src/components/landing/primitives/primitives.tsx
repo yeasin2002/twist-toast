@@ -1,9 +1,5 @@
 import type { ReactNode } from "react";
 
-interface CodeBlockProps {
-  code: string;
-}
-
 interface SectionHeaderProps {
   title: string;
   subtitle: string;
@@ -12,14 +8,6 @@ interface SectionHeaderProps {
 interface TableCardProps {
   children: ReactNode;
   title: string;
-}
-
-export function CodeBlock({ code }: CodeBlockProps) {
-  return (
-    <pre className="tt-code-block">
-      <code>{code}</code>
-    </pre>
-  );
 }
 
 export function SectionHeader({ title, subtitle }: SectionHeaderProps) {
@@ -41,3 +29,5 @@ export function TableCard({ children, title }: TableCardProps) {
     </article>
   );
 }
+
+export * from "./code-block";

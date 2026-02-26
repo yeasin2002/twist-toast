@@ -5,7 +5,7 @@ import {
   type ApiOptionRow,
   type MethodRow,
 } from "./data";
-import { SectionHeader, TableCard } from "./primitives";
+import { SectionHeader, TableCard } from "./primitives/primitives";
 
 interface OptionsTableProps {
   caption: string;

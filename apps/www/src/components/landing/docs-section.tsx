@@ -1,5 +1,5 @@
 import { createToastCode, installCommand, providerCode } from "./data";
-import { CodeBlock, SectionHeader } from "./primitives";
+import { CodeBlock, SectionHeader } from "./primitives/primitives";
 
 const docsSteps = [
   { label: "1. Install", code: installCommand },

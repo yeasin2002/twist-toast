@@ -34,9 +34,6 @@ export function HeroSection() {
                 View GitHub
               </a>
             </Button>
-            <span className="border-border/80 bg-background/70 rounded-full border px-3 py-1 text-xs font-medium tracking-wide uppercase">
-              MIT Licensed
-            </span>
           </div>
           <div className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {valueProps.map((item) => (

@@ -4,7 +4,7 @@ import {
   playgroundNotes,
   toastVariants,
 } from "./data";
-import { SectionHeader } from "./primitives";
+import { SectionHeader } from "./primitives/primitives";
 
 export function PlaygroundSection() {
   return (
