@@ -6,6 +6,7 @@ import { NpmIcon } from "../icons";
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 const navItems = [
   { label: "Features", href: "/#playground" },
   { label: "Docs", href: "/#docs" },
@@ -18,9 +19,7 @@ export function Navbar() {
       <div className="border-border/70 bg-background/75 container rounded-2xl border px-4 py-2.5 shadow-sm backdrop-blur-xl md:px-5">
         <div className="flex items-center justify-between gap-3">
           <Link href="/" className="group inline-flex items-center gap-2">
-            <span className="bg-primary/15 text-primary rounded-lg px-2 py-1 text-xs font-semibold tracking-wide uppercase">
-              tt
-            </span>
+            <Image src={"/logo.png"} alt="Logo" width={30} height={30} />
             <span className="font-display text-lg tracking-tight transition-opacity group-hover:opacity-80">
               twist-toast
             </span>
