@@ -9,7 +9,6 @@ import { StyleGlideProvider } from "@/components/styleglide-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import "@/styles/globals.css";
 
-
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -109,8 +108,6 @@ export const metadata: Metadata = {
     creator: "@ausrobdev",
   },
 };
-
-
 
 const dmSans = localFont({
   src: [

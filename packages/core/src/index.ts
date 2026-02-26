@@ -12,4 +12,3 @@ export type {
   ToastRecord,
   ToastRole,
 } from "./types";
-
