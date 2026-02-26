@@ -20,18 +20,13 @@ export default function NotFound() {
           </p>
 
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Button asChild size="lg" className="group min-w-[200px] gap-2">
+            <Button asChild size="lg" className="group min-w-50 gap-2">
               <Link href="/">
                 <ArrowLeft className="size-5 transition-transform group-hover:-translate-x-1" />
                 Back to Home
               </Link>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="min-w-[200px]"
-            >
+            <Button asChild variant="outline" size="lg" className="min-w-50">
               <Link href="/contact">Contact Support</Link>
             </Button>
           </div>
