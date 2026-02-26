@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Github, Menu } from "lucide-react";
 
-import { NpmIcon } from "../icons";
+import { NpmIcon } from "./icons";
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
