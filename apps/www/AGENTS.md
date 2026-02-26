@@ -37,6 +37,8 @@ public/              # Static assets (images, fonts, icons)
 fonts/               # Custom font files (DM Sans)
 .kiro/               # Kiro configuration and steering rules
 ```
+Note: read more info from `apps\www\AGENTS.md` file for more details about the project structure and organization.
+
 
 ## Key Conventions
 

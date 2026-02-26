@@ -39,6 +39,7 @@ React 17+ support with TypeScript generics, comprehensive testing, and npm publi
 
 ```
 twist-toast/
+├── apps/           #  www/site for documentation and landing page (initially, will be changed based on project needs)
 ├── example/           # example use of this library (Not available now, will be added in future after core library is ready)
 ├── packages/           # Workspace packages
 │   ├── core/   # Core library (main deliverable)
@@ -54,6 +55,24 @@ twist-toast/
 ```
 
 ## Package Organization
+
+## apps/www (Documentation and Landing Page- initially, will be changed based on project needs )
+
+This site is designed for twist-toast users, a documentation and landing page that showcases the product's capabilities and provides resources for developers to get started. It serves as a central hub for all things twist-toast, including guides, API references, and examples.
+```
+src/
+├── app/              # Next.js App Router pages
+├── components/       # React components
+│   ├── blocks/      # Page section components (hero, features, etc.)
+│   └── ui/          # shadcn/ui base components
+├── actions/         # Server actions with next-safe-action
+├── lib/             # Utility functions and shared logic
+└── styles/          # Global CSS and Tailwind styles
+
+public/              # Static assets (images, fonts, icons)
+fonts/               # Custom font files (DM Sans)
+```
+
 
 ### twist-toast (Core Library- initially, will be changed based on project needs )
 
