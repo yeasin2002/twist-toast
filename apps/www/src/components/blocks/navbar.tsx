@@ -7,6 +7,7 @@ import { NpmIcon } from "./icons";
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { label: "Components", href: "/components" },
@@ -62,27 +63,7 @@ export async function Navbar() {
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button asChild variant="outline" className="h-9 px-2.5">
-              <a
-                aria-label="twist-toast GitHub repository"
-                href="https://github.com/yeasin2002/twist-toast"
-                rel="noreferrer"
-                target="_blank"
-                className="inline-flex items-center gap-1.5"
-              >
-                <Github className="size-4" />
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="icon" className="size-9">
-              <a
-                aria-label="twist-toast npm package"
-                href="https://www.npmjs.com/package/@twist-toast/react"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <NpmIcon className="size-4" />
-              </a>
-            </Button>
+            <NavProjectURL className="hidden md:block" />
 
             <details className="group relative md:hidden">
               <summary className="border-border/70 bg-background/70 flex size-9 cursor-pointer list-none items-center justify-center rounded-md border">
@@ -102,6 +83,8 @@ export async function Navbar() {
                     {item.label}
                   </Link>
                 ))}
+
+                <NavProjectURL className="mt-4 space-x-3 md:hidden" />
               </nav>
             </details>
           </div>
@@ -110,3 +93,31 @@ export async function Navbar() {
     </header>
   );
 }
+
+export const NavProjectURL = ({ className }: { className?: string }) => {
+  return (
+    <div className={cn("space-x-1", className)}>
+      <Button asChild variant="outline" className="h-9 px-2.5">
+        <a
+          aria-label="twist-toast GitHub repository"
+          href="https://github.com/yeasin2002/twist-toast"
+          rel="noreferrer"
+          target="_blank"
+          className="inline-flex items-center gap-1.5"
+        >
+          <Github className="size-4" />
+        </a>
+      </Button>
+      <Button asChild variant="outline" size="icon" className="size-9">
+        <a
+          aria-label="twist-toast npm package"
+          href="https://www.npmjs.com/package/@twist-toast/react"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <NpmIcon className="size-4" />
+        </a>
+      </Button>
+    </div>
+  );
+};

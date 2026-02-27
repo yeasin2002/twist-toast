@@ -20,7 +20,7 @@ export async function HeroSection() {
       <div className="relative gap-14">
         <div>
           <p className="tt-kicker">Design-system-first notifications</p>
-          <h1 className="mt-4 max-w-5xl text-5xl leading-[0.95] tracking-tight text-balance md:text-6xl">
+          <h1 className="mt-4 max-w-5xl text-4xl leading-[0.95] tracking-tight text-balance md:text-6xl">
             twist-toast gives you total UI freedom with reliable toast behavior.
           </h1>
           <p className="text-muted-foreground mt-6 max-w-3xl text-base leading-relaxed md:text-lg">
