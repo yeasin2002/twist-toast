@@ -2,7 +2,7 @@
   "name": "@twist-toast/vue",
   "type": "module",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "description": "Vue adapter starter for twist-toast (scaffolding only).",
   "author": "Md Kawsar Islam Yeasin <mdkawsarislam2002@gmail.com>",
   "license": "MIT",
@@ -28,6 +28,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",

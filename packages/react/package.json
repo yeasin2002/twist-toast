@@ -35,8 +35,8 @@
     "dev": "tsdown --watch",
     "play": "vite",
     "test": "vitest",
-    "typecheck": "tsc --noEmit",
-    "release": "bumpp && pnpm publish",
+    "typecheck": "pnpm run check-types",
+    "check-types": "tsc --noEmit",
     "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
@@ -51,7 +51,6 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
     "@vitest/browser-playwright": "^4.0.16",
-    "bumpp": "^10.3.2",
     "tsdown": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
