@@ -27,7 +27,7 @@ export default function RootLayout({
         <ReactLenis root />
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
