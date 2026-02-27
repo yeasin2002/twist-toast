@@ -24,7 +24,7 @@ export const DisplayToasters = ({
       {...props}
     >
       {children}
-      <Button className="mt-4" onClick={onTrigger} type="button">
+      <Button className="mt-4 self-end" onClick={onTrigger} type="button">
         {buttonLabel}
       </Button>
     </div>
