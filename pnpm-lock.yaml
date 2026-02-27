@@ -65,6 +65,9 @@ importers:
       '@styleglide/kit-view-provider':
         specifier: ^0.0.8
         version: 0.0.8(next-themes@0.4.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@twist-toast/react':
+        specifier: workspace:*
+        version: link:../../packages/react
       '@types/mdx':
         specifier: ^2.0.13
         version: 2.0.13
@@ -248,6 +251,9 @@ importers:
       '@tsconfig/strictest':
         specifier: ^2.0.8
         version: 2.0.8
+      '@twist-toast/react':
+        specifier: workspace:*
+        version: 'link:'
       '@twist-toast/typescript-config':
         specifier: workspace:*
         version: link:../../tooling/typescript-config

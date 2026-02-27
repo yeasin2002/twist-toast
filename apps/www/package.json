@@ -13,6 +13,7 @@
     "format": "prettier -w ."
   },
   "dependencies": {
+    "@twist-toast/react": "workspace:*",
     "@hookform/resolvers": "^5.2.2",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
