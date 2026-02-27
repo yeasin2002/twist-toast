@@ -1,0 +1,57 @@
+{
+  "name": "@twist-toast/cli",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "CLI for twist-toast to initialize project config and add components.",
+  "author": "Md Kawsar Islam Yeasin <mdkawsarislam2002@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/yeasin2002/twist-toast#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeasin2002/twist-toast.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yeasin2002/twist-toast/issues"
+  },
+  "keywords": [
+    "twist-toast",
+    "cli",
+    "scaffold",
+    "components",
+    "react"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "twist-toast": "./dist/index.mjs"
+  },
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "lint": "tsc --noEmit",
+    "check-types": "tsc --noEmit",
+    "prepublishOnly": "pnpm run build"
+  },
+  "devDependencies": {
+    "@twist-toast/typescript-config": "workspace:*",
+    "@types/node": "^25.0.3",
+    "@types/prompts": "^2.4.9",
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
+  },
+  "dependencies": {
+    "commander": "^14.0.3",
+    "prompts": "^2.4.2"
+  }
+}
