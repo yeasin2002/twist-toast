@@ -75,8 +75,8 @@ export async function Navbar() {
             </Button>
             <Button asChild variant="outline" size="icon" className="size-9">
               <a
-                aria-label="twist-toast GitHub repository"
-                href="https://github.com/yeasin2002/twist-toast"
+                aria-label="twist-toast npm package"
+                href="https://www.npmjs.com/package/@twist-toast/react"
                 rel="noreferrer"
                 target="_blank"
               >
