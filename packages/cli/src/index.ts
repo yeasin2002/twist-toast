@@ -95,7 +95,7 @@ const program = new Command()
 program
   .name('twist-toast')
   .description('CLI for initializing twist-toast config and adding components')
-  .version('0.1.0')
+  .version('0.0.1')
 
 program
   .command('init')

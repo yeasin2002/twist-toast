@@ -1,5 +1,5 @@
 {
-  "name": "twist-toast",
+  "name": "twist-toast-workspace",
   "private": true,
   "scripts": {
     "build": "turbo run build",

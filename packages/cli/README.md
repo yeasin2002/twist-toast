@@ -1,8 +1,24 @@
-# @twist-toast/cli
+# twist-toast
 
 CLI for `twist-toast`.
 
 This package provides the user-facing command used to initialize `twist-toast` config and add toast components to a project.
+
+## Quick Start
+
+Use directly with `npx`:
+
+```bash
+npx twist-toast@latest init
+npx twist-toast@latest add toast-root
+```
+
+Use directly with `pnpm dlx`:
+
+```bash
+pnpm dlx twist-toast@latest init
+pnpm dlx twist-toast@latest add toast-root
+```
 
 ## Commands
 
@@ -55,7 +71,7 @@ The CLI currently includes the command structure and prompts. Project file gener
 From the repo root:
 
 ```bash
-pnpm --filter @twist-toast/cli check-types
-pnpm --filter @twist-toast/cli build
+pnpm --filter twist-toast check-types
+pnpm --filter twist-toast build
 node packages/cli/dist/index.mjs --help
 ```
