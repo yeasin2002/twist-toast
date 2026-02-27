@@ -1,0 +1,44 @@
+name: WWW or Docs Issue
+description: Report issues in website content, docs clarity, examples, or UX.
+title: "[www/docs] "
+labels:
+  - docs
+body:
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Issue type
+      options:
+        - Documentation is wrong or unclear
+        - Missing documentation
+        - Website bug or UI issue
+        - Example is incorrect
+    validations:
+      required: true
+
+  - type: input
+    id: page
+    attributes:
+      label: Page or file
+      description: URL path or docs file path.
+      placeholder: /components or docs/some-page.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Explain the issue clearly and what is confusing or broken.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested fix
+      description: Optional, but useful.
+      placeholder: Proposed wording, screenshot notes, or expected behavior.
+    validations:
+      required: false
+

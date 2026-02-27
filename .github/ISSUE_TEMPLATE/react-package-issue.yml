@@ -1,0 +1,66 @@
+name: React Package Issue
+description: Report an issue in @twist-toast/react behavior, typing, or API usage.
+title: "[react] "
+labels:
+  - react
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What problem are you seeing in @twist-toast/react?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - createToast API
+        - ToastProvider behavior
+        - TypeScript types
+        - Styling or rendering
+        - Accessibility
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Add short code snippet or repo link.
+      placeholder: |
+        // snippet here
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+
+  - type: textarea
+    id: versions
+    attributes:
+      label: Version and environment
+      placeholder: |
+        @twist-toast/react:
+        react:
+        react-dom:
+        framework/app:
+        node:
+        package manager:
+    validations:
+      required: true
+
