@@ -1,7 +1,7 @@
 {
   "name": "twist-toast",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CLI for twist-toast to initialize project config and add components.",
   "author": "Md Kawsar Islam Yeasin <mdkawsarislam2002@gmail.com>",
   "license": "MIT",
