@@ -1,7 +1,7 @@
 {
   "name": "@twist-toast/react",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "React adapter for twist-toast",
   "author": "Md Kawsar Islam Yeasin <mdkawsarislam2002@gmail.com>",
   "license": "MIT",
