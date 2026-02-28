@@ -35,39 +35,60 @@ This keeps configuration close to your component definitions and gives strongly 
 
 ## Monorepo Packages
 
-### `@twist-toast/core`
+### `packages/core`
 
-Framework-agnostic core logic:
+Main deliverable - the core toast notification library:
 
-- state machine and queue orchestration
-- timer lifecycle and dismissal flow
-- dedupe behavior and internal events
-- shared types used by adapters
+- `createToast()` factory with full TypeScript inference
+- `ToastProvider` component for React integration
+- Queue management, deduplication, and lifecycle control
+- Zero runtime dependencies beyond React
+- Complete behavior management (state, timing, accessibility)
 
-### `@twist-toast/react`
+### `tooling/eslint-config`
 
-React adapter layer:
+Shared ESLint configurations:
 
-- provider/context wiring
-- portal-based rendering
-- React-facing APIs built on top of `@twist-toast/core`
+- `@twist-toast/eslint-config/base` - Base rules
+- `@twist-toast/eslint-config/next-js` - Next.js specific
+- `@twist-toast/eslint-config/react-internal` - React library rules
+
+### `tooling/typescript-config`
+
+Shared TypeScript configurations:
+
+- `base.json` - Base config with strict mode
+- `nextjs.json` - Next.js specific
+- `react-library.json` - React library specific
+
+### `apps/www`
+
+Documentation and landing page (Next.js):
+
+- Product showcase and feature highlights
+- API documentation and usage guides
+- Interactive examples and demos
 
 ## Repository Layout
 
 ```text
 twist-toast/
+├── apps/
+│   └── www/              # Documentation site
 ├── packages/
-│   ├── core/
-│   └── react/
-├── examples/
+│   └── core/             # Main library
 ├── tooling/
-└── PROJECT-BRD.md
+│   ├── eslint-config/    # Shared linting
+│   └── typescript-config/# Shared TS configs
+├── tutorials/            # Guides and tutorials
+├── AGENTS.md             # AI assistant guidance
+└── .turbo/               # Turborepo cache
 ```
 
 ## Current Status
 
 This repository is currently under active development.  
-`@twist-toast/core` and `@twist-toast/react` are scaffolded and being implemented toward the BRD goals.
+`packages/core` is the main deliverable containing the complete React toast library with TypeScript-first design.
 
 ## Local Development
 
@@ -91,8 +112,8 @@ pnpm build
 ### Package-specific build
 
 ```bash
-pnpm --filter @twist-toast/core build
-pnpm --filter @twist-toast/react build
+pnpm --filter twist-toast build
+pnpm --filter @twist-toast/www build
 ```
 
 ### Quality checks
@@ -103,22 +124,27 @@ pnpm format
 pnpm check-types
 ```
 
-## Using Workspace Packages in Examples
+## Using Workspace Packages
 
 ```bash
-pnpm --filter ./examples/vite-react add @twist-toast/core@workspace:*
-pnpm --filter ./examples/vite-react add @twist-toast/react@workspace:*
+# Add core library to your app
+pnpm add twist-toast@workspace:*
+
+# Add shared configs to packages
+pnpm add -D @twist-toast/eslint-config@workspace:*
+pnpm add -D @twist-toast/typescript-config@workspace:*
 ```
 
 ## Roadmap
 
-- **Phase 1 (v1.0 target)**: core manager, typed `createToast()`, React provider, test suite, npm-ready docs
-- **Phase 2**: CLI scaffolding support
-- **Phase 3+**: additional framework adapters (Vue/Svelte) and plugin-style extension points
+- **Phase 1 (Current)**: React 17+ support with TypeScript generics, comprehensive testing, and npm publication
+- **Phase 2**: CLI tooling for scaffolding and component generation
+- **Phase 3+**: Multi-framework support (Vue, Angular, Svelte)
 
 ## Reference
 
-- Business requirements and architecture intent: `PROJECT-BRD.md`
+- AI assistant guidance and project structure: `AGENTS.md`
+- Tutorials and guides: `tutorials/`
 
 ## License
 

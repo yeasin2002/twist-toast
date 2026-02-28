@@ -1,12 +1,24 @@
-# @twist-toast/react
+# twist-toast
 
-React adapter for `@twist-toast/core`.
+Design-system-first toast notifications for React.
 
-This package provides:
+This package provides complete toast notification functionality:
 
-- `createToast()` for typed variant APIs
+- `createToast()` for typed variant APIs with full TypeScript inference
 - `ToastProvider` for rendering scoped toasts via portal
-- React-facing types (`ToastComponentProps`, `ToastInstance`, etc.)
+- Queue management, deduplication, and lifecycle control
+- Zero runtime dependencies beyond React
+- Full design control - you own every pixel of the UI
+
+## Installation
+
+```bash
+npm install twist-toast
+# or
+pnpm add twist-toast
+# or
+yarn add twist-toast
+```
 
 ## Usage
 
@@ -15,7 +27,7 @@ import {
   createToast,
   ToastProvider,
   type ToastComponentProps,
-} from "@twist-toast/react";
+} from "twist-toast";
 
 type SuccessPayload = { title: string; description?: string };
 
@@ -55,6 +67,17 @@ toast.dismiss("job-1");
 toast.dismissAll();
 ```
 
+## Features
+
+- **Full Design Control**: Define your own toast components with complete styling freedom
+- **TypeScript-First**: Automatic type inference from your component definitions
+- **Zero Dependencies**: No runtime dependencies beyond React 17+
+- **Queue Management**: Configurable max visible toasts with smart queuing
+- **Deduplication**: Prevent duplicate toasts by ID
+- **Flexible Positioning**: Per-toast or global position configuration
+- **Accessibility**: Built-in ARIA roles and keyboard support
+- **Multiple Scopes**: Isolated toast instances for different app sections
+
 ## Scope Rules
 
 - Toast instances are created with one `scope` (`default` if omitted).
@@ -89,9 +112,63 @@ Available variables:
 - `--twist-toast-transition-duration`
 - `--twist-toast-transition-easing`
 
-## Build
+## API Reference
+
+### `createToast(components, options?)`
+
+Creates a typed toast instance with methods for each variant.
+
+**Parameters:**
+
+- `components`: Object mapping variant names to React components
+- `options`: Optional configuration
+  - `scope`: String identifier for this toast instance (default: `"default"`)
+  - `maxToasts`: Maximum visible toasts (default: `5`)
+  - `defaultPosition`: Default position for toasts (default: `"top-right"`)
+  - `defaultDuration`: Default duration in ms (default: `4000`)
+
+**Returns:** Toast instance with methods for each variant plus `dismiss()` and `dismissAll()`
+
+### `<ToastProvider>`
+
+Renders toasts for a specific scope.
+
+**Props:**
+
+- `scope`: String matching the scope from `createToast()` (default: `"default"`)
+- `children`: React children to wrap
+
+### `ToastComponentProps<TPayload>`
+
+Props passed to your toast components:
+
+- `...payload`: Spread of your payload properties
+- `dismiss`: Function to dismiss this toast
+- `id`: Unique toast identifier
+- `position`: Current position of this toast
+
+## Development
+
+### Build
 
 ```bash
-pnpm --filter @twist-toast/react build
-pnpm --filter @twist-toast/react check-types
+pnpm --filter twist-toast build
+pnpm --filter twist-toast check-types
 ```
+
+### Watch Mode
+
+```bash
+pnpm --filter twist-toast dev
+```
+
+## Requirements
+
+- React 17+
+- TypeScript 5+ (for best type inference)
+
+## License
+
+MIT
+
+## Build
