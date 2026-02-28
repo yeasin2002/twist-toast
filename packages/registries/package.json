@@ -1,6 +1,7 @@
 {
   "name": "@twist-toast/registries",
   "type": "module",
+  "private": true,
   "version": "0.0.0",
   "description": "A starter for creating a React component library.",
   "exports": {
