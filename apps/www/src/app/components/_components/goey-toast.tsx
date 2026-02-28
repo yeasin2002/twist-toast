@@ -10,7 +10,8 @@ import {
   GoeyToastSuccess,
   GoeyToastWarning,
   goeyToast,
-} from "@/components/collections-list/goey-toast";
+} from "@twist-toast/registries/goey";
+
 import { DisplayToasters } from "@/components/shared/display-toasters";
 
 export const GoeyToast = () => {

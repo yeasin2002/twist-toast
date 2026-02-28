@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Github, Menu, Star } from "lucide-react";
+import { Github, Menu } from "lucide-react";
 
 import { NpmIcon } from "./icons";
 
@@ -9,10 +9,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const navItems = [
-  { label: "Components", href: "/components" },
-  { label: "Collections", href: "/collections" },
-];
+const navItems = [{ label: "Components", href: "/components" }];
 
 const landingPageSection = [
   { label: "Features", href: "/#playground" },

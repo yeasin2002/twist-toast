@@ -1,5 +1,6 @@
 "use client";
 
+import { DisplayToasters } from "@/components/shared/display-toasters";
 import {
   HotToastError,
   HotToastInfo,
@@ -7,8 +8,7 @@ import {
   HotToastSuccess,
   HotToastWarning,
   hotToast,
-} from "@/components/collections-list/hot-toast";
-import { DisplayToasters } from "@/components/shared/display-toasters";
+} from "@twist-toast/registries/hot-toast";
 
 export const HotToasts = () => {
   return (

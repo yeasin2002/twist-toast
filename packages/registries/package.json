@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "description": "A starter for creating a React component library.",
   "exports": {
-    ".": "./dist/index.js",
+    "./goey": "./components/goey-toast/index.ts",
+    "./hot-toast": "./components/hot-toast/index.ts",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
@@ -17,12 +18,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsdown",
-    "dev": "tsdown --watch",
-    "play": "vite",
-    "test": "vitest",
-    "typecheck": "tsc --noEmit",
-    "prepublishOnly": "pnpm run build"
+    "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
     "react": "^19.2.0",
@@ -38,12 +34,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
     "@vitest/browser-playwright": "^4.0.16",
-    "bumpp": "^10.3.2",
-    "tsdown": "^0.18.1",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.0",
-    "vitest": "^4.0.16",
-    "vitest-browser-react": "^2.0.2"
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "clsx": "^2.1.1",
