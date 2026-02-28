@@ -1,7 +1,7 @@
-import { defineConfig } from 'tsdown'
+import { defineConfig } from "tsdown";
 
 export default defineConfig({
-  platform: 'neutral',
+  platform: "neutral",
   fromVite: true,
   dts: { vue: true },
-})
+});

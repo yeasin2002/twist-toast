@@ -29,6 +29,3 @@ export function TableCard({ children, title }: TableCardProps) {
     </article>
   );
 }
-
-
-

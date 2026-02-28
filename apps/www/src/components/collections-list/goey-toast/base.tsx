@@ -125,7 +125,8 @@ export function GoeyToastBase({
 
   const expanded = Boolean(displayDescription || displayAction);
   const shouldShowProgress = showProgress ?? defaultShowProgress ?? false;
-  const role = variant === "error" || variant === "warning" ? "alert" : "status";
+  const role =
+    variant === "error" || variant === "warning" ? "alert" : "status";
   const progressDuration = Math.max(durationMs ?? 4000, 1000);
 
   const cssVars = useMemo(

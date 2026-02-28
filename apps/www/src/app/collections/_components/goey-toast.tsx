@@ -36,9 +36,7 @@ export const GoeyToast = () => {
           <GoeyToastSuccess />
         </DisplayToasters>
         <DisplayToasters
-          onTrigger={() =>
-            goeyToast.error({ message: "Something went wrong" })
-          }
+          onTrigger={() => goeyToast.error({ message: "Something went wrong" })}
         >
           <GoeyToastError />
         </DisplayToasters>
