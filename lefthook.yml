@@ -5,7 +5,7 @@ pre-commit:
     lint:
       glob:
         - "packages/**/*"
-        - "example/**/*"
+        - "apps/**/*"
         - "examples/**/*"
       run: pnpm lint
     format:
