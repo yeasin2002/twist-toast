@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 import styles from "./goey-toast.module.css";
 import type { GoeyToastComponentProps, GoeyToastVariant } from "./types";
 
-import { cn } from "../../utils";
+import { cn } from "@twist-toast/ui/lib/utils";
 
 type GoeyPalette = {
   accent: string;

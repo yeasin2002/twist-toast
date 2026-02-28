@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { cn } from "../../utils";
+import { cn } from "@twist-toast/ui/lib/utils";
 
 type HotToastBaseProps = {
   icon?: ReactNode;

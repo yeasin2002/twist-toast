@@ -5,18 +5,19 @@ packages:
   - examples/*
 
 catalog:
-  typescript: ^5.9.3
+  '@vitejs/plugin-vue': ^6.0.3
+  next: ^16.1.6
   react: ^19.2.4
   react-dom: ^19.2.4
-  next: ^16.1.6
-  tsdown: ^0.18.1
+  tsdown: ^0.18.4
+  typescript: ^5.9.3
   vite: ^7.3.1
   vue: ^3.5.25
-  "@vitejs/plugin-vue": ^6.0.3
   vue-tsc: ^3.1.8
 
 onlyBuiltDependencies:
   - '@swc/core'
+  - core-js-pure
   - esbuild
   - lefthook
   - sharp
