@@ -1,6 +1,7 @@
-import { defineConfig } from 'tsdown'
+import { defineConfig } from "tsdown";
 
 export default defineConfig({
-  platform: 'neutral',
-  // ...config options
-})
+  platform: "neutral",
+  dts: true,
+  entry: ["./src/collections/**/*.{ts,tsx}", "./src/components/**/*.{ts,tsx}"],
+});

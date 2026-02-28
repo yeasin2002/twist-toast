@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/strictest/tsconfig.json",
+  "extends": "@twist-toast/typescript-config/react-library.json",
   "compilerOptions": {
     "target": "esnext",
     "jsx": "react-jsx",
