@@ -9,6 +9,5 @@ createRoot(document.getElementById("root")!).render(
     <ToastProvider scope="global">
       <App />
     </ToastProvider>
-    <App />
   </StrictMode>,
 );

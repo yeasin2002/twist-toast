@@ -2,12 +2,14 @@ import { createToast } from "@twist-toast/react";
 import {
   CustomToast,
   ErrorToast,
+  LoadingToast,
   ModalInfoToast,
   SuccessToast,
 } from "./toast-components";
 
 export const toast = createToast(
   {
+    loading: LoadingToast,
     success: SuccessToast,
     error: ErrorToast,
     custom: CustomToast,

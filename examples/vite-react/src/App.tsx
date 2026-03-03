@@ -116,6 +116,34 @@ function App() {
             Custom click-dismiss
           </button>
           <button
+            className="rounded-xl border border-amber-300 bg-amber-50 px-3 py-2 text-sm font-semibold text-amber-900 transition duration-150 hover:-translate-y-0.5 hover:border-amber-400 hover:bg-amber-100"
+            type="button"
+            onClick={() => {
+              const toastId = "loading-demo";
+              toast.loading(
+                {
+                  title: "Loading data",
+                  description: "Fetching latest records from the server.",
+                },
+                { id: toastId, duration: 0 },
+              );
+              setLastGlobalToastId(toastId);
+
+              setTimeout(() => {
+                const successToastId = toast.success(
+                  {
+                    title: "Loaded successfully",
+                    description: "Data fetched and ready to use.",
+                  },
+                  { id: toastId, duration: 3200 },
+                );
+                setLastGlobalToastId(successToastId);
+              }, 3000);
+            }}
+          >
+            Loading
+          </button>
+          <button
             className="rounded-xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800 transition duration-150 hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-100"
             type="button"
             onClick={() => {

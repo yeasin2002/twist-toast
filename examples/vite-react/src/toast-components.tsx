@@ -17,6 +17,11 @@ export type CustomPayload = {
   accent?: string;
 };
 
+export type LoadingPayload = {
+  title: string;
+  description?: string;
+};
+
 export type ModalPayload = {
   title: string;
   detail?: string;
@@ -106,6 +111,38 @@ export function CustomToast({
         onClick={dismiss}
       >
         Done
+      </button>
+    </article>
+  );
+}
+
+export function LoadingToast({
+  title,
+  description,
+  dismiss,
+  toastId,
+}: ToastComponentProps<LoadingPayload>) {
+  return (
+    <article className="flex items-start justify-between gap-3 rounded-xl border border-amber-300 bg-amber-50 p-3 shadow-[0_10px_24px_rgba(96,62,5,0.12)]">
+      <div className="flex items-start gap-2">
+        <span
+          aria-hidden
+          className="mt-1 inline-block h-3 w-3 animate-spin rounded-full border-2 border-amber-400 border-t-transparent"
+        />
+        <div>
+          <p className="text-[0.95rem] font-bold text-amber-900">{title}</p>
+          {description ? (
+            <p className="mt-1 text-sm text-amber-900/80">{description}</p>
+          ) : null}
+        </div>
+      </div>
+      <button
+        aria-label={`Dismiss toast ${toastId}`}
+        className="min-h-8 rounded-lg border border-amber-300 bg-white px-2.5 text-xs font-semibold text-amber-900 transition hover:border-amber-400 hover:bg-amber-100"
+        type="button"
+        onClick={dismiss}
+      >
+        Cancel
       </button>
     </article>
   );
