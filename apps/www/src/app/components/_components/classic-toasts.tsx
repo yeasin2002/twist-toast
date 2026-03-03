@@ -1,6 +1,6 @@
 "use client";
 
-import { DisplayToasters } from "@/components/shared/display-toasters";
+import { DisplayToasters } from "@/components/shared";
 import {
   HotToastError,
   HotToastInfo,
@@ -8,16 +8,14 @@ import {
   HotToastSuccess,
   HotToastWarning,
   hotToast,
-} from "../../../../../../packages/registries/components/classic";
+} from "@twist-toast/registries/classic";
 
-export const HotToasts = () => {
+export const ClassicToasts = () => {
   return (
     <section className="space-y-4">
       <div className="space-y-1">
-        <h2 className="text-2xl font-semibold">React Hot Toast</h2>
-        <p className="text-muted-foreground text-sm">
-          Toast styles inspired by react-hot-toast defaults.
-        </p>
+        <h2 className="text-2xl font-semibold">Classic Toasts</h2>
+        <p className="text-muted-foreground text-sm">Regular toasts </p>
       </div>
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         <DisplayToasters

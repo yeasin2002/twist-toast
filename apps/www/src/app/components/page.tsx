@@ -2,7 +2,7 @@
 
 import { ToastProvider } from "@twist-toast/react";
 
-import { HotToasts } from "./_components/classic-toasts";
+import { ClassicToasts } from "./_components/classic-toasts";
 import { MotionToast } from "./_components/motion-toast";
 
 const Collections = () => {
@@ -16,7 +16,7 @@ const Collections = () => {
               Prebuilt UI collections for twist-toast.
             </p>
           </div>
-          <HotToasts />
+          <ClassicToasts />
           <MotionToast />
         </div>
       </ToastProvider>

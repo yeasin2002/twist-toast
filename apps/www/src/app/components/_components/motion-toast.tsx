@@ -7,7 +7,9 @@ import {
   SileoToastSuccess,
   SileoToastWarning,
   sileoToast,
-} from "../../../../../../packages/registries/components/motion";
+} from "@twist-toast/registries/motion";
+
+
 
 import { DisplayToasters } from "@/components/shared/display-toasters";
 
@@ -16,9 +18,9 @@ export const MotionToast = () => {
     <ToastProvider scope="sileo-toast">
       <section className="space-y-4">
         <div className="space-y-1">
-          <h2 className="text-2xl font-semibold">Sileo Toast</h2>
+          <h2 className="text-2xl font-semibold">Motion Toast</h2>
           <p className="text-muted-foreground text-sm">
-            Gooey, physics-inspired toast components styled like Sileo.
+            Animated Toasts with framer-motions 
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
