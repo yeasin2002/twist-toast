@@ -8,7 +8,7 @@ import {
   HotToastSuccess,
   HotToastWarning,
   hotToast,
-} from "@twist-toast/registries/hot-toast";
+} from "../../../../../../packages/registries/components/classic";
 
 export const HotToasts = () => {
   return (

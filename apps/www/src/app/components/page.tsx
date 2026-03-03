@@ -2,8 +2,8 @@
 
 import { ToastProvider } from "@twist-toast/react";
 
-import { GoeyToast } from "./_components/goey-toast";
-import { HotToasts } from "./_components/hot-toasts";
+import { HotToasts } from "./_components/classic-toasts";
+import { MotionToast } from "./_components/motion-toast";
 
 const Collections = () => {
   return (
@@ -17,7 +17,7 @@ const Collections = () => {
             </p>
           </div>
           <HotToasts />
-          <GoeyToast />
+          <MotionToast />
         </div>
       </ToastProvider>
     </ToastProvider>

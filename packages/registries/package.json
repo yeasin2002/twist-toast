@@ -5,9 +5,8 @@
   "version": "0.0.0",
   "description": "A starter for creating a React component library.",
   "exports": {
-    "./goey": "./components/goey-toast/index.ts",
-    "./hot-toast": "./components/hot-toast/index.ts",
-    "./package.json": "./package.json"
+    "./classic": "./components/classic/index.ts",
+    "./motion": "./components/motion/index.ts"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",

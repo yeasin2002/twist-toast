@@ -1,7 +1,5 @@
 export * from "./action";
 export * from "./base";
-export * from "./default";
-export * from "./description";
 export * from "./error";
 export * from "./icons";
 export * from "./info";
